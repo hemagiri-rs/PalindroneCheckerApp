@@ -1,6 +1,14 @@
 public class PalindromeCheckerApp {
     public static void main(String[] args){
-        System.out.println("Welcome to palindrome checker App Management System");
+        String str = "madam";
+        str = str.toLowerCase();
+        String reversed = new StringBuilder(str).reverse().toString();
+        if (str.equals(reversed)) {
+            System.out.println(str + " is a palindrome.");
+        } else {
+            System.out.println(str + " is not a palindrome.");
+        }
+
     }
 
 }
