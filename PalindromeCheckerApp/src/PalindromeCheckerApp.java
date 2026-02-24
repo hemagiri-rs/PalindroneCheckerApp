@@ -1,26 +1,24 @@
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
+import java.util.Deque;  // ✅ Added import
 
 public class PalindromeCheckerApp {
     public static void main(String[] args){
-        String str = "level";
-        Queue<Character> queue = new LinkedList<>();
-        Stack<Character> stack = new Stack<>();
+        String str = "rotor";
+        Deque<Character> deque = new LinkedList<>();
 
-        // Corrected for loop
-        for(int i = 0; i < str.length(); i++) {
-            char ch = str.charAt(i);
-            queue.add(ch);
-            stack.push(ch);
+        // Insert characters into deque
+        for (int i = 0; i < str.length(); i++) {
+            deque.addLast(str.charAt(i));
         }
 
         boolean isPalindrome = true;
-        while (!queue.isEmpty() && !stack.isEmpty()) {
-            char fromQueue = queue.remove();
-            char fromStack = stack.pop();
+        while (deque.size() > 1) {
+            char front = deque.removeFirst();
+            char rear = deque.removeLast();
 
-            if (fromQueue != fromStack) {
+            if (front != rear) {
                 isPalindrome = false;
                 break;
             }
